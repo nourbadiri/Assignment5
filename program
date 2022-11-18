@@ -1,0 +1,7 @@
+app.get("/programs", function(req,res){
+    dataService.getPrograms()
+    .then((data)=>{
+        if(data.length>0) res.render("programs", {programs: data});
+        else res.render("programs", {message: "no results"})})
+    .catch(()=>res.render("programs", {message: "no results"}))
+});
